@@ -47,7 +47,7 @@ const Image: React.FC<IImageProps> = ({ image, index, selectedImages, handleChec
                     className="h-full w-full"
                 />
                 <div className="absolute top-0 left-0 w-full h-full cursor-move group">
-                    <div onClick={() => handleCheckMark(image)} className={`flex absolute z-10 top-5 right-5 h-6 w-6 justify-center items-center  ${selectedImages?.includes(image) ? "bg-[#2e5bfd]" : "bg-white hidden group-hover:flex"} cursor-pointer`}>
+                    <div onClick={() => handleCheckMark(image)} className={`flex absolute z-10 top-5 left-5 h-6 w-6 justify-center items-center  ${selectedImages?.includes(image) ? "bg-[#2e5bfd]" : "bg-white hidden group-hover:flex"} cursor-pointer`}>
                         {selectedImages?.includes(image) && <AiOutlineCheck color="white" />}
                     </div>
                     <div onClick={onClick} className={`absolute top-0 left-0 w-full h-full cursor-move ${selectedImages?.includes(image) ? "bg-black opacity-40 transition-opacity" : "bg-black opacity-0 transition-opacity group-hover:opacity-50"}`} />
