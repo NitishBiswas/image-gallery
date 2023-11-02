@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import Image from "./Image";
@@ -69,7 +69,7 @@ const ImageGallery = ({ images, setImages, selectedImages, handleCheckMark, hand
                                 )
                             } else {
                                 return (
-                                    <div key={index + images?.slice(1, isGreaterThan('lg') ? 7 : 5)?.length} className={`w-[50%] lg:w-[33.33%] p-3  h-[215px]`}>
+                                    <div key={index + images?.slice(1, isGreaterThan('lg') ? 7 : 5)?.length} className={`w-[50%] lg:w-[33.33%] p-3  h-[200px]`}>
                                         <ImageUploadCard onFileSelect={(files) => handleUploadImages(files)} />
                                     </div>
                                 )
@@ -99,7 +99,7 @@ const ImageGallery = ({ images, setImages, selectedImages, handleCheckMark, hand
                             )
                         } else {
                             return (
-                                <div key={index + images?.slice(isGreaterThan('lg') ? 7 : 5, images?.length)?.length} className={`w-[50%] sm:w-[25%] lg:w-[20%] p-3  h-[215px]`}>
+                                <div key={index + images?.slice(isGreaterThan('lg') ? 7 : 5, images?.length)?.length} className={`w-[50%] sm:w-[25%] lg:w-[20%] p-3  h-[200px]`}>
                                     <ImageUploadCard onFileSelect={(files) => handleUploadImages(files)} />
                                 </div>
                             )

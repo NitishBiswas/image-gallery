@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { AiOutlineCheck } from 'react-icons/ai';
 
@@ -37,17 +37,18 @@ const Image: React.FC<IImageProps> = ({ image, index, selectedImages, handleChec
     return (
         <div
             ref={(node) => drag(drop(node))}
-            className={`${isDragging ? "opacity-50" : "opacity-100"} overflow-hidden relative p-3 ${className}`}
+            className={`${isDragging ? "opacity-50" : "opacity-100"} relative p-3 ${className}`}
             style={style}
         >
-            <div className="relative bg-gray-200">
+            <div className="relative rounded-lg border-2 border-gray-200 overflow-hidden h-full w-full cursor-pointer">
                 <img
                     src={image}
-                    alt={`Image ${index}`}
-                    className="h-full w-full"
+                    alt={`gallery ${index}`}
+                    className="h-full w-full object-contain"
                 />
+
                 <div className="absolute top-0 left-0 w-full h-full cursor-move group">
-                    <div onClick={() => handleCheckMark(image)} className={`flex absolute z-10 top-5 left-5 h-6 w-6 justify-center items-center  ${selectedImages?.includes(image) ? "bg-[#2e5bfd]" : "bg-white hidden group-hover:flex"} cursor-pointer`}>
+                    <div onClick={() => handleCheckMark(image)} className={`flex absolute z-10 top-5 left-5 h-6 w-6 justify-center items-center rounded  ${selectedImages?.includes(image) ? "bg-[#2e5bfd]" : "bg-white hidden group-hover:flex"} cursor-pointer`}>
                         {selectedImages?.includes(image) && <AiOutlineCheck color="white" />}
                     </div>
                     <div onClick={onClick} className={`absolute top-0 left-0 w-full h-full cursor-move ${selectedImages?.includes(image) ? "bg-black opacity-40 transition-opacity" : "bg-black opacity-0 transition-opacity group-hover:opacity-50"}`} />
